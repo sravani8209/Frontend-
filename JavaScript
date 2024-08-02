@@ -1,0 +1,128 @@
+import React, { useState } from "react";
+
+import axios from 'axios';
+
+import './App.css';
+
+function App() {
+
+JavaScript const [jsonInput, setJsonInput] = useState('');
+
+useState(null) Next, we will have a HTTP response const [response, setResponse]
+
+const [,setError] = useState();
+
+useState () is used to do so, with the modification you can select multiple options in this post state when it changes. cons [selectedOptions, setSelectedOption] = useState([])
+
+function handleInputChange(event) {
+
+setJsonInput(event. target. value);
+
+};
+
+function handleOptionChange(event) {
+
+const value = Array. from(event. target..selectedOptions, (option) => option. value);
+
+setSelectedOptions(value);
+
+};
+
+async function handleSubmit() {
+
+setError(null);
+
+setResponse(null);
+
+try {
+
+// Validate JSON input
+
+JSON.parse(jsonInput);
+
+// Make a request to the backend with our in JSON input
+
+const result = await axios. post('https://your-api-url.com/bfhl', { parse(jsonInput));
+
+setResponse(result. data);
+
+} catch (err) {
+
+setError('Unexpected JSON error or API Error. );
+
+}
+
+};
+function renderResponse(){
+
+if (! response) return null;
+
+const { numbers, alphabets, highest_alphabet} = response;
+
+const options = {
+
+Numbers: numbers,
+
+Alphabets: alphabets,
+
+'highest_alphabet': highest_alphabet
+
+};
+
+return (
+
+{selectedOptions. map(option => (
+
+{option}
+
+{options[option]?. map((item, index) => (
+
+{item}
+
+)) ||
+
+No data
+
+}
+
+))}
+
+);
+
+};
+
+return (
+
+Your Roll Number - ABCD123
+
+rows="5"
+
+cols="50"
+
+value={jsonInput}
+
+onChange={handleInputChange}
+
+placeholder='AciUrl gose here, eg: {"data": ["A","C","z"]}'
+
+/>
+
+
+The Button that handles the function when clicked Submit
+
+
+handleOptionChange(e)}>NumbersAlphabetsLowest to Highest Alphabet (asc)
+
+{ error &&
+
+{error}
+
+ }
+
+{renderResponse()}
+
+);
+
+}
+
+export default App;
