@@ -1,0 +1,33 @@
+.App {
+
+  text-align: center;
+
+  margin: 20px;
+
+}
+
+textarea {
+
+  width: 100%;
+
+  margin: 10px 0;
+
+}
+
+button {
+
+  margin: 10px 0;
+
+}
+
+select {
+
+  margin: 10px 0;
+
+}
+
+h3 {
+
+  margin: 10px 0;
+
+}
